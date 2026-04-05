@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>科学的想象力 · 孩子们的金句时刻</title>
+  
+  <!-- 字体：包图小白体 + Google Doodles 风格字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <!-- 包图小白体（手写风格） -->
+  <style>
+    @font-face {
+      font-family: 'BaoTu XiaoBai';
+      src: url('https://static.baotucdn.com/baotu/font/BaoTuXiaoBaiTi.woff2') format('woff2'),
+           url('https://static.baotucdn.com/baotu/font/BaoTuXiaoBaiTi.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
+  <style>
+    :root {
+      /* 配色 - Google Doodles 风格：明亮、温暖、有趣 */
+      --bg-primary: #F0F2F5;
+      --card-bg: #FFFFFF;
+      --text-primary: #202124;
+      --text-secondary: #5F6368;
+      --text-light: #9AA0A6;
+      --accent-blue: #4285F4;
+      --accent-red: #EA4335;
+      --accent-yellow: #FBBC04;
+      --accent-green: #34A853;
+      --accent-purple: #AA60D5;
+      
+      /* 筛选维度色 */
+      --dim-age: #4285F4;
+      --dim-topic: #E37400;
+      --dim-session: #34A853;
+
+      --shadow-card: 0 2px 16px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06);
+      --shadow-card-hover: 0 8px 32px rgba(0,0,0,0.12), 0 16px 48px rgba(0,0,0,0.08);
+      --radius: 8px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ===== 背景装饰 ===== */
+    .bg-decor {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.12;
+      animation: floatShape 20s ease-in-out infinite;
+    }
+    @keyframes floatShape {
+      0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+      25% { transform: translate(30px, -20px) scale(1.05) rotate(5deg); }
+      50% { transform: translate(-20px, 15px) scale(0.95) rotate(-3deg); }
+      75% { transform: translate(15px, 25px) scale(1.02) rotate(2deg); }
+    }
+    .s1 { width: 300px; height: 300px; background: var(--accent-blue); top: -80px; right: -40px; animation-delay: 0s; }
+    .s2 { width: 200px; height: 200px; background: var(--accent-yellow); bottom: 10%; left: -60px; animation-delay: -5s; }
+    .s3 { width: 150px; height: 150px; background: var(--accent-green); top: 40%; right: 5%; animation-delay: -10s; }
+    .s4 { width: 250px; height: 250px; background: var(--accent-purple); bottom: -60px; right: 25%; animation-delay: -15s; }
+    .s5 { width: 180px; height: 180px; background: var(--accent-red); top: 20%; left: 35%; animation-delay: -7s; opacity: 0.06; }
+
+    /* ===== Header ===== */
+    .header {
+      position: relative;
+      z-index: 10;
+      padding: 24px 32px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .header-left { display: flex; align-items: baseline; gap: 14px; }
+    .logo {
+      font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', Georgia, serif;
+      font-size: 28px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+    }
+    .tagline {
+      font-size: 13px;
+      color: var(--text-secondary);
+      max-width: 260px;
+      line-height: 1.5;
+    }
+
+    /* ===== 筛选栏 ===== */
+    .filter-bar {
+      position: relative;
+      z-index: 10;
+      padding: 16px 32px 8px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 12px;
+      color: var(--text-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding-top: 6px;
+      white-space: nowrap;
+    }
+    .filter-btn {
+      padding: 7px 16px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 300;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      cursor: pointer;
+      border: 1.2px solid #222;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      white-space: nowrap;
+      user-select: none;
+      position: relative;
+      background: transparent;
+      color: var(--text-primary);
+    }
+    .filter-btn:hover { transform: translateY(-1px); background: #FFF9E0; }
+    .filter-btn:active { transform: scale(0.95); }
+
+    /* 筛选按钮激活态：金黄色高亮 + 黑字 */
+    .filter-btn.f-age.active { background: #F5B941; color: #111; border-color: #111; box-shadow: 0 2px 8px rgba(245,185,65,0.45); }
+    .filter-btn.f-topic.active { background: #F5B941; color: #111; border-color: #111; box-shadow: 0 2px 8px rgba(245,185,65,0.45); }
+    .filter-btn.f-session.active { background: #F5B941; color: #111; border-color: #111; box-shadow: 0 2px 8px rgba(245,185,65,0.45); }
+
+    /* 非激活态的各维度微调（保持边框一致） */
+    .filter-btn.f-age { }
+    .filter-btn.f-topic { }
+    .filter-btn.f-session { }
+
+    /* 全部按钮 */
+    .filter-reset {
+      background: transparent;
+      border: 1.2px solid #222;
+      color: var(--text-primary);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 300;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-left: auto;
+      align-self: center;
+    }
+    .filter-reset:hover { background: #FFF9E0; }
+
+    /* 计数 */
+    .counter {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-light);
+      padding-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .counter-num {
+      font-weight: 700;
+      color: var(--accent-blue);
+      font-size: 18px;
+      vertical-align: middle;
+      margin: 0 3px;
+    }
+
+    /* ===== 卡片堆叠区域 ===== */
+    .stack-container {
+      position: relative;
+      z-index: 8;
+      width: 520px;
+      max-width: 92vw;
+      height: 480px;
+      max-height: 70vh;
+      margin: 0 auto;
+      perspective: 1200px;
+    }
+
+    /* 单张卡片 */
+    .card {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      cursor: grab;
+      touch-action: pan-y;
+      will-change: transform;
+      backface-visibility: hidden;
+      transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+    .card:active { cursor: grabbing; }
+    .card:hover { box-shadow: var(--shadow-card-hover); }
+
+    /* 卡片内容区 */
+    .card-body {
+      flex: 1;
+      padding: 36px 32px 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 金句文本 */
+    .card-quote {
+      font-size: 22px;
+      line-height: 1.75;
+      font-weight: 600;
+      font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', Georgia, serif;
+      color: var(--text-primary);
+      flex: 1;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-left: 28px;
+    }
+    .card-quote::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -8px;
+      font-family: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      font-size: 56px;
+      line-height: 1;
+      opacity: 0.2;
+      color: var(--accent-blue);
+    }
+    /* 根据主题改变引号颜色（彩虹渐变效果） */
+    .card .card-quote::before {
+      background: linear-gradient(135deg, #4285F4, #AA60D5, #EA4335);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0.22;
+    }
+
+    /* 卡片底部信息 */
+    .card-footer {
+      padding: 16px 28px 22px;
+      border-top: 1px solid #F1F3F4;
+      background: linear-gradient(to bottom, rgba(248,249,250,0.5), #FAFBFC);
+      flex-shrink: 0;
+    }
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .card-meta-sub {
+      margin-top: 6px;
+      padding-top: 8px;
+      border-top: 1px dashed #EEE;
+    }
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 11px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 300;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.2px solid #222;
+    }
+    .meta-badge.topic { border-color: #222; }
+    .meta-badge.session { border-color: #222; }
+    .meta-badge.age { border-color: #222; }
+    .meta-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* 展开上下文 */
+    .context-toggle {
+      text-align: center;
+      padding-top: 12px;
+      border-top: 1px dashed #EEE;
+      margin-top: 12px;
+    }
+    .ctx-toggle-btn {
+      background: none;
+      border: none;
+      font-size: 12px;
+      color: var(--accent-blue);
+      cursor: pointer;
+      padding: 4px 12px;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+    .ctx-toggle-btn:hover { background: #E8F0FE; }
+    .context-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .context-panel.open { max-height: 240px; }
+    .context-text {
+      padding: 12px 0 4px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+    .context-text strong { color: var(--text-primary); }
+    .ctx-before { border-left: 3px solid var(--accent-green); padding-left: 12px; margin-bottom: 10px; }
+    .ctx-after { border-left: 3px solid var(--accent-blue); padding-left: 12px; }
+
+    /* ===== 拖拽指示器 ===== */
+    .drag-hint {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-light);
+      white-space: nowrap;
+      opacity: 0.7;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .drag-arrows { font-size: 18px; letter-spacing: 4px; }
+
+    /* ===== 左右滑动箭头 ===== */
+    .slide-nav {
+      position: relative;
+      width: 520px;
+      max-width: 92vw;
+      height: 0;
+      margin: 0 auto;
+      z-index: 15;
+    }
+    .slide-arrow {
+      position: absolute;
+      top: -240px;  /* 卡片高度的一半 */
+      z-index: 15;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(160, 175, 190, 0.35);
+      background: rgba(255, 255, 255, 0.7);
+      color: #8899AA;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+    .slide-arrow:hover {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(100, 130, 160, 0.4);
+      color: #445566;
+      transform: scale(1.12);
+      box-shadow: 0 3px 16px rgba(0, 0, 0, 0.12);
+    }
+    .slide-arrow:active { transform: scale(0.92); }
+    .slide-arrow--left { left: -28px; }
+    .slide-arrow--right { right: -28px; }
+
+    /* ===== 进度指示器 ===== */
+    .progress-dots {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      padding: 20px 0 30px;
+    }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #DADCE0;
+      transition: all 0.3s;
+    }
+    .dot.active {
+      width: 20px; border-radius: 3px;
+      background: var(--accent-blue);
+    }
+    .dot.done { background: #C5D7EC; }
+
+    /* ===== 操作按钮 ===== */
+    .action-bar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding-bottom: 20px;
+    }
+
+    /* ===== 右侧操作栏（Google Doodle 风格圆角卡片按钮） ===== */
+    .sidebar-actions {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+    .action-btn {
+      width: 64px; height: 64px;
+      border-radius: 22px;
+      border: 0.5px solid #2D2D2D;
+      font-size: 26px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: none;
+      position: relative;
+      font-weight: 700;
+    }
+    .action-btn::after {
+      content: attr(data-tip);
+      position: absolute;
+      right: calc(100% + 12px);
+      top: 50%;
+      transform: translateY(-50%);
+      background: #2D2D2D;
+      color: white;
+      font-size: 12px;
+      padding: 6px 13px;
+      border-radius: 10px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 500;
+      border: 2px solid #2D2D2D;
+    }
+    .action-btn:hover::after {
+      opacity: 1;
+      transform: translateY(-50%) translateX(-6px);
+    }
+    .action-btn:hover {
+      transform: scale(1.08) translateY(-2px);
+    }
+    .action-btn:active { 
+      transform: scale(0.95) !important; 
+    }
+
+    /* 各按钮 —— 纯色底 + 白色手绘图标 */
+    .action-btn.shuffle {
+      background: #8AB4F8;
+      color: #FFFFFF;
+    }
+    .action-btn.collision {
+      background: #FFD04B;
+      color: #FFFFFF;
+    }
+    .action-btn.share {
+      background: #F5A0C0;
+      color: #FFFFFF;
+    }
+    .action-btn.read-text {
+      background: #81D4FA;
+      color: #FFFFFF;
+    }
+
+    /* 手绘涂鸦风格 SVG */
+    .action-btn svg {
+      filter: url(#doodle-rough);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ===== 阅读文本弹窗 ===== */
+    .reading-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(30, 35, 45, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .reading-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .reading-panel {
+      width: 90vw;
+      max-width: 680px;
+      max-height: 85vh;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: 20px;
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.18),
+        0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(20px) scale(0.97);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .reading-overlay.show .reading-panel {
+      transform: translateY(0) scale(1);
+    }
+    .reading-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 28px 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .reading-title {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 700;
+      color: #2C3440;
+      font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+    }
+    .reading-close {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0, 0, 0, 0.07);
+      color: #666;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .reading-close:hover {
+      background: rgba(0, 0, 0, 0.14);
+      color: #333;
+    }
+    .reading-body {
+      padding: 24px 28px 28px;
+      overflow-y: auto;
+      flex: 1;
+      font-size: 15.5px;
+      line-height: 1.9;
+      color: #333;
+      font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', Georgia, serif;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .reading-body::-webkit-scrollbar { width: 5px; }
+    .reading-body::-webkit-scrollbar-track { background: transparent; }
+    .reading-body::-webkit-scrollbar-thumb { background: #CCC; border-radius: 3px; }
+
+    @media (max-width: 600px) {
+      .reading-panel { width: 94vw; max-height: 88vh; border-radius: 16px; }
+      .reading-header { padding: 18px 20px 12px; }
+      .reading-title { font-size: 17px; }
+      .reading-body { padding: 18px 20px 22px; font-size: 14.5px; line-height: 1.85; }
+    }
+
+    /* ===== 飞走动画 ===== */
+    .card.fly-left {
+      transition: transform 0.45s cubic-bezier(0.55, 0, 0.98, 0.47),
+                  opacity 0.45s cubic-bezier(0.55, 0, 0.98, 0.47);
+      transform: translateX(-150%) rotate(-25deg) scale(0.85) !important;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .card.fly-right {
+      transition: transform 0.45s cubic-bezier(0.55, 0, 0.98, 0.47),
+                  opacity 0.45s cubic-bezier(0.55, 0, 0.98, 0.47);
+      transform: translateX(150%) rotate(25deg) scale(0.85) !important;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* ===== 撒花效果 ===== */
+    .confetti-container {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 999;
+      overflow: hidden;
+    }
+    .confetti {
+      position: absolute;
+      width: 10px; height: 10px;
+      border-radius: 2px;
+      animation: confettiFall linear forwards;
+    }
+    @keyframes confettiFall {
+      0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* ===== 全部看完提示 ===== */
+    .all-done-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      background: rgba(255,255,255,0.96);
+      border-radius: var(--radius);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s;
+      backdrop-filter: blur(8px);
+    }
+    .all-done-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    .all-done-content {
+      text-align: center;
+      animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .done-emoji { font-size: 64px; display: block; margin-bottom: 16px; animation: bounce 1s infinite; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .done-title { font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+    .done-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+    .done-btn {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 28px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      color: white;
+      transition: all 0.3s;
+    }
+    .done-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(66,133,244,0.35);
+    }
+
+    /* ===== 散落标签（Google Doodles 风格小卡片） ===== */
+    .floating-tags {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      overflow: visible;
+    }
+    }
+    .floating-tag {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 10px 16px;
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 300;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: white;
+      color: #222;
+      border: none;
+      box-shadow:
+        0 2px 8px rgba(0,0,0,0.08),
+        0 4px 16px rgba(0,0,0,0.04);
+      pointer-events: auto;
+      cursor: default;
+      animation: floatTagIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+      white-space: nowrap;
+      min-width: 60px;
+      /* 每张小卡片随机一个微妙的主题色 */
+    }
+    /* 小卡片顶部装饰条（模仿 Google Doodle 卡片的彩色元素） */
+    .floating-tag::before {
+      content: '';
+      position: absolute;
+      top: -2px; left: 50%;
+      transform: translateX(-50%);
+      width: 24px; height: 3.5px;
+      border-radius: 0 0 6px 6px;
+      background: var(--card-accent, #F5B941);
+    }
+    .floating-tag:hover {
+      transform: translateY(-8px) scale(1.08) rotate(-2deg) !important;
+      box-shadow:
+        0 12px 32px rgba(0,0,0,0.12),
+        0 4px 12px rgba(0,0,0,0.06);
+      z-index: 20;
+    }
+    /* 不同位置的小卡片有不同浮动节奏 */
+    .floating-tag.tag-left { animation-name: floatTagIn, floatLeftDoodle; }
+    .floating-tag.tag-right { animation-name: floatTagIn, floatRightDoodle; }
+    .floating-tag.tag-top { animation-name: floatTagIn, floatTopDoodle; }
+    .floating-tag.tag-bottom { animation-name: floatTagIn, floatBottomDoodle; }
+
+    @keyframes floatTagIn {
+      from { opacity: 0; transform: scale(0.3) rotate(-15deg); }
+      to { opacity: 1; transform: scale(1) rotate(var(--rot, 0deg)); }
+    }
+    @keyframes floatLeftDoodle {
+      0%, 100% { transform: translateY(0) rotate(var(--rot, -5deg)); }
+      33% { transform: translateY(-6px) rotate(calc(var(--rot, -5deg) + 2deg)); }
+      66% { transform: translateY(3px) rotate(calc(var(--rot, -5deg) - 1deg)); }
+    }
+    @keyframes floatRightDoodle {
+      0%, 100% { transform: translateY(0) rotate(var(--rot, 4deg)); }
+      33% { transform: translateY(5px) rotate(calc(var(--rot, 4deg) - 2deg)); }
+      66% { transform: translateY(-4px) rotate(calc(var(--rot, 4deg) + 1deg)); }
+    }
+    @keyframes floatTopDoodle {
+      0%, 100% { transform: translateY(0) rotate(var(--rot, -2deg)); }
+      33% { transform: translateY(4px) rotate(calc(var(--rot, -2deg) + 3deg)); }
+      66% { transform: translateY(-5px) rotate(calc(var(--rot, -2deg) - 2deg)); }
+    }
+    @keyframes floatBottomDoodle {
+      0%, 100% { transform: translateY(0) rotate(var(--rot, 3deg)); }
+      33% { transform: translateY(-5px) rotate(calc(var(--rot, 3deg) - 2deg)); }
+      66% { transform: translateY(4px) rotate(calc(var(--rot, 3deg) + 1deg)); }
+    }
+
+    /* ===== 灵感碰撞模式 ===== */
+    .collision-overlay {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(245,185,65,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(240,147,251,0.08) 0%, transparent 50%),
+        rgba(15,18,28,0.97);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+    }
+    .collision-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    /* 碰撞面板进入时的闪光波 */
+    .collision-overlay.show::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,185,65,0.6) 0%, rgba(240,147,251,0.3) 40%, transparent 70%);
+      transform: translate(-50%, -50%) scale(0);
+      animation: collisionFlash 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      pointer-events: none;
+      z-index: 201;
+    }
+    @keyframes collisionFlash {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(80); opacity: 0; }
+    }
+    .collision-title {
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #F5B941 0%, #F093FB 50%, #667eea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+    @keyframes titleGlow {
+      from { filter: drop-shadow(0 2px 8px rgba(245,185,65,0.3)); }
+      to { filter: drop-shadow(0 4px 20px rgba(240,147,251,0.4)); }
+    }
+    .collision-subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 32px;
+      letter-spacing: 0.8px;
+    }
+    .collision-cards-wrap {
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+      max-width: 960px;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .collision-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px;
+      width: 380px;
+      max-width: 45vw;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1.5px solid rgba(245,185,65,0.25);
+      box-shadow:
+        0 8px 32px rgba(0,0,0,0.15),
+        0 2px 8px rgba(245,185,65,0.08);
+      animation: collisionCardIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .collision-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow:
+        0 16px 48px rgba(0,0,0,0.2),
+        0 4px 16px rgba(245,185,65,0.15);
+    }
+    .collision-card.card-b { animation-delay: 0.18s; }
+    @keyframes collisionCardIn {
+      from { opacity: 0; transform: translateY(50px) scale(0.85) rotate(-2deg); }
+      to { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+    }
+    .collision-card .card-body {
+      padding: 28px 24px 18px;
+      flex: 1;
+    }
+    .collision-card .card-quote {
+      font-size: 17px;
+      line-height: 1.7;
+      padding-left: 22px;
+    }
+    .collision-card .card-quote::before {
+      font-size: 44px;
+    }
+    .collision-card .card-footer {
+      padding: 14px 20px 18px;
+    }
+    .collision-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+      flex-shrink: 0;
+      align-self: center;
+    }
+    .collision-connector-inner {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #F5B941 0%, #F093FB 40%, #667eea 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow:
+        0 4px 20px rgba(245,185,65,0.4),
+        0 0 40px rgba(240,147,251,0.2);
+      animation: pulseConnector 2s ease-in-out infinite;
+      position: relative;
+    }
+    /* 连接器光晕 */
+    .collision-connector-inner::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: inherit;
+      filter: blur(12px);
+      opacity: 0.4;
+      z-index: -1;
+      animation: connectorGlow 2s ease-in-out infinite reverse;
+    }
+    @keyframes connectorGlow {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.4); opacity: 0.15; }
+    }
+    @keyframes pulseConnector {
+      0%, 100% { transform: scale(1) rotate(0deg); box-shadow: 0 4px 20px rgba(245,185,65,0.4), 0 0 40px rgba(240,147,251,0.2); }
+      25% { transform: scale(1.1) rotate(5deg); box-shadow: 0 6px 28px rgba(245,185,65,0.5), 0 0 50px rgba(240,147,251,0.3); }
+      75% { transform: scale(1.08) rotate(-5deg); box-shadow: 0 8px 32px rgba(240,147,251,0.45), 0 0 48px rgba(245,185,65,0.28); }
+    }
+    .collision-hint {
+      margin-top: 28px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+    .collision-btn-group {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .collision-close-btn {
+      padding: 11px 30px;
+      border-radius: 24px;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s;
+      color: rgba(255,255,255,0.6);
+    }
+    .collision-close-btn:hover {
+      border-color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.85);
+    }
+    .collision-refresh-btn {
+      padding: 11px 30px;
+      border-radius: 24px;
+      border: none;
+      background: linear-gradient(135deg, #F5B941 0%, #F093FB 100%);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 4px 16px rgba(245,185,65,0.25);
+    }
+    .collision-refresh-btn:hover {
+      transform: scale(1.06) translateY(-2px);
+      box-shadow: 0 8px 28px rgba(245,185,65,0.4);
+    }
+
+    /* 灵感碰撞按钮样式（侧栏按钮已统一为 Google 风格，此处保留覆盖层内按钮） */
+    .collision-overlay .action-btn.collision {
+      background: linear-gradient(145deg, #FFD04B 0%, #F9AB00 100%);
+      color: #2D2D2D;
+      border: none;
+      box-shadow: none;
+    }
+
+    /* ===== 灵感碰撞入口（无底色纯文字风格） ===== */
+    .collision-section {
+      position: relative;
+      z-index: 10;
+      padding: 20px 24px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .collision-entrance {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      background: transparent;
+      border: 0.5px solid rgba(0,0,0,0.15);
+      padding: 16px 36px;
+      border-radius: 22px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: none;
+      overflow: visible;
+    }
+    .collision-entrance:hover {
+      background: rgba(0,0,0,0.03);
+      border-color: rgba(0,0,0,0.25);
+      transform: translateY(-2px);
+    }
+    .collision-entrance:active {
+      transform: scale(0.98);
+      background: rgba(0,0,0,0.05);
+    }
+    .collision-text-group {
+      text-align: center;
+    }
+    .collision-main-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+    }
+    .collision-sub {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 4px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+    /* 碰撞入口两侧装饰粒子 */
+    .collision-particles {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 60px;
+      pointer-events: none;
+      transform: translateY(-50%);
+    }
+    .c-particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: cFloat 3s ease-in-out infinite;
+    }
+    .c-particle:nth-child(1) { left: -15px; top: 30%; background: #F5B941; animation-delay: 0s; }
+    .c-particle:nth-child(2) { left: -8px; top: 60%; background: #F093FB; animation-delay: 0.5s; }
+    .c-particle:nth-child(3) { right: -18px; top: 25%; background: #667eea; animation-delay: 0.8s; }
+    .c-particle:nth-child(4) { right: -10px; top: 65%; background: #F5B941; animation-delay: 1.2s; }
+    .c-particle:nth-child(5) { left: -22px; top: 45%; background: #764ba2; animation-delay: 1.6s; }
+    .c-particle:nth-child(6) { right: -24px; top: 50%; background: #F093FB; animation-delay: 2s; }
+
+    @keyframes cFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+      33% { transform: translate(4px, -8px) scale(1.3); opacity: 0.8; }
+      66% { transform: translate(-3px, 4px) scale(0.8); opacity: 0.3; }
+    }
+
+    /* 碰撞入口下方提示 */
+    .collision-hint-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #5D4E37;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+      font-weight: 500;
+    }
+    .collision-section:hover .collision-hint-bar {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      .slide-arrow {
+        width: 30px;
+        height: 30px;
+        opacity: 0.5;
+      }
+      .slide-arrow svg { width: 15px; height: 15px; }
+      .slide-arrow--left { left: -6px; }
+      .slide-arrow--right { right: -6px; }
+
+      /* 碰撞入口移动端适配 */
+      .collision-entrance {
+        padding: 13px 24px;
+        border-radius: 18px;
+      }
+      .collision-main-title {
+        font-size: 17px;
+      }
+      .collision-sub {
+        font-size: 11px;
+      }
+
+      /* 右侧操作栏移动端适配 */
+      .sidebar-actions {
+        right: 12px;
+        gap: 10px;
+      }
+      .action-btn {
+        width: 54px; height: 54px;
+        border-radius: 18px;
+        font-size: 22px;
+        border-width: 0.5px;
+        box-shadow: none;
+      }
+      .action-btn:hover {
+        transform: scale(1.08) translateY(-2px);
+      }
+    }
+
+    /* ===== 页面结尾 ===== */
+    .site-footer {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 20px 0 36px;
+    }
+    .footer-text {
+      font-size: 13px;
+      color: var(--text-light);
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    /* ===== 响应式 ===== */
+
+    /* 平板及中等屏幕（768px - 1024px） */
+    @media (max-width: 1024px) {
+      .stack-container { width: 480px; height: 460px; }
+      .slide-nav { width: 480px; max-width: 92vw; }
+      .slide-arrow { top: -230px; }
+      .slide-arrow--left { left: -24px; }
+      .slide-arrow--right { right: -24px; }
+    }
+
+    @media (max-width: 768px) {
+      .stack-container { width: 440px; height: 440px; max-height: 65vh; }
+      .slide-nav { width: 440px; max-width: 92vw; }
+      .slide-arrow { top: -220px; width: 34px; height: 34px; }
+      .card-body { padding: 30px 26px 20px; }
+      .card-quote { font-size: 20px; padding-left: 24px; }
+      .card-quote::before { font-size: 50px; top: -6px; }
+      .sidebar-actions { right: 16px; gap: 12px; }
+      .action-btn { width: 60px; height: 60px; border-radius: 20px; font-size: 24px; border-width: 0.5px; box-shadow: none; }
+      .slide-arrow--left { left: -20px; }
+      .slide-arrow--right { right: -20px; }
+      .collision-cards-wrap { gap: 12px; }
+    }
+
+    /* 手机端（600px以下） */
+    @media (max-width: 600px) {
+      .header { padding: 16px 18px; }
+      .logo { font-size: 22px; }
+      .tagline { display: none; }
+      .filter-bar { padding: 0 16px 16px; }
+      .filter-btn { padding: 6px 14px; font-size: 12px; }
+      .stack-container { width: 94vw; height: 420px; }
+      .slide-nav { width: 94vw; }
+      .slide-arrow { top: -210px; width: 32px; height: 32px; }
+      .slide-arrow svg { width: 16px; height: 16px; }
+      .card-body { padding: 28px 20px 18px; }
+      .card-quote { font-size: 18px; padding-left: 22px; }
+      .card-quote::before { font-size: 44px; }
+      .card-footer { padding: 14px 18px 18px; }
+      .action-bar { padding-bottom: 20px; }
+
+      /* 右侧操作栏移动端适配 —— 已在 600px 断点统一定义 */
+      .sidebar-actions {
+        right: 10px;
+        gap: 9px;
+      }
+      .action-btn {
+        width: 52px; height: 52px;
+        font-size: 20px;
+        border-radius: 17px;
+        border-width: 0.5px;
+      }
+
+      /* 小屏幕隐藏散落标签 */
+      .floating-tags { display: none; }
+
+      /* 碰撞模式移动端适配 */
+      .collision-cards-wrap { flex-direction: column; align-items: center; }
+      .collision-card { width: 88vw; max-width: 380px; }
+      .collision-connector { transform: rotate(90deg); padding: 16px 0 0; }
+    }
+
+    /* ===== 隐藏滚动条但保持功能 ===== */
+    .card-body::-webkit-scrollbar { width: 3px; }
+    .card-body::-webkit-scrollbar-track { background: transparent; }
+    .card-body::-webkit-scrollbar-thumb { background: #DADCE0; border-radius: 2px; }
+
+    /* 加载动画 */
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-primary);
+      z-index: 1000;
+      transition: opacity 0.5s;
+    }
+    .loading-spinner {
+      width: 44px; height: 44px;
+      border: 4px solid #E8EAED;
+      border-top-color: var(--accent-blue);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<!-- 手绘涂鸦风格滤镜 -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <filter id="doodle-rough">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<body>
+
+<!-- 散落标签（浮在卡片周围，放在最前确保不被遮挡） -->
+<div class="floating-tags" id="floating-tags"></div>
+
+<!-- 背景 -->
+<div class="bg-decor">
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="shape s3"></div>
+  <div class="shape s4"></div>
+  <div class="shape s5"></div>
+</div>
+
+<!-- 加载屏 -->
+<div class="loading-screen" id="loading">
+  <div class="loading-spinner"></div>
+</div>
+
+<!-- 头部 -->
+<header class="header">
+  <div class="header-left">
+    <h1 class="logo">科学的想象力</h1>
+    <p class="tagline">共读科幻科学作品，探索人类的心智边界</p>
+  </div>
+</header>
+
+<!-- 计数 -->
+<div class="counter">
+  已探索 <span class="counter-num" id="current-num">0</span> / <span class="counter-num" id="total-num">0</span> 则少年妙语
+</div>
+
+<!-- 卡片堆叠 -->
+<div class="stack-container" id="stack">
+  <div class="drag-hint"><span class="drag-arrows">← →</span> 拖动或按方向键翻卡</div>
+</div>
+
+<!-- 左右滑动箭头（独立于卡片容器外） -->
+<div class="slide-nav">
+  <button class="slide-arrow slide-arrow--left" onclick="navigateCard(-1)" aria-label="上一张">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <button class="slide-arrow slide-arrow--right" onclick="navigateCard(1)" aria-label="下一张">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+</div>
+
+<!-- 进度点 -->
+<div class="progress-dots" id="progress-dots"></div>
+
+<!-- 右侧操作栏（圆形浮动按钮） -->
+<div class="sidebar-actions">
+  <button class="action-btn shuffle" onclick="shuffleCards()" data-tip="打乱顺序">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
+  </button>
+  <button class="action-btn collision" onclick="startCollision()" data-tip="灵感碰撞">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+  </button>
+  <button class="action-btn share" onclick="shareCurrent()" data-tip="分享金句">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+  </button>
+  <button class="action-btn read-text" onclick="openReadingPanel()" data-tip="阅读文本">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+  </button>
+</div>
+
+<!-- ===== 灵感碰撞入口 ===== -->
+<div class="collision-section">
+  <button class="collision-entrance" onclick="startCollision()">
+    <div class="collision-text-group">
+      <div class="collision-main-title">✦ 灵感碰撞 ✦</div>
+      <div class="collision-sub">随机抽取两张不同议题的卡片，寻找跨学科联系</div>
+    </div>
+  </button>
+</div>
+
+<!-- 筛选（卡片下方、页脚上方） -->
+<div class="filter-bar" id="filter-bar">
+  <!-- 由 JS 动态生成：年龄 / 分议题 / 文本 三维度筛选按钮 -->
+</div>
+
+<!-- 撒花容器 -->
+<div class="confetti-container" id="confetti"></div>
+
+<!-- 灵感碰撞面板 -->
+<div class="collision-overlay" id="collision-overlay">
+  <div class="collision-title">💥 灵感碰撞</div>
+  <div class="collision-subtitle">两张不同议题的卡片相遇，寻找跨学科的联系</div>
+  <div class="collision-cards-wrap" id="collision-cards">
+    <!-- JS 动态填充 -->
+  </div>
+  <div class="collision-hint">💡 试着找出两条金句之间的共同点或有趣的跨学科联系</div>
+  <div class="collision-btn-group">
+    <button class="collision-refresh-btn" onclick="startCollision()">🔄 再来一组</button>
+    <button class="collision-close-btn" onclick="closeCollision()">返回浏览</button>
+  </div>
+</div>
+
+<!-- 页面结尾 -->
+<footer class="site-footer">
+  <span class="footer-text">文本讨论会第六季 @走读皆城2026</span>
+</footer>
+
+<script src="./data.js?v=2"></script>
+<script src="./app.js?v=2"></script>
+<script>
+  // 调试：确保散落标签渲染（延迟到数据加载完成后）
+  setTimeout(() => {
+    const container = document.getElementById('floating-tags');
+    if (container && container.children.length === 0) {
+      console.log('[调试] floating-tags 容器为空，尝试手动调用 renderFloatingTags...');
+      if (typeof renderFloatingTags === 'function') {
+        renderFloatingTags();
+        console.log('[调试] renderFloatingTags 已调用，子元素数:', container.children.length);
+      } else {
+        console.warn('[调试] renderFloatingTags 函数不存在！');
+      }
+    } else if (container) {
+      console.log('[调试] floating-tags 已有', container.children.length, '个子元素');
+    }
+  }, 1000);
+</script>
+
+<!-- 阅读文本弹窗 -->
+<div class="reading-overlay" id="reading-panel">
+  <div class="reading-panel">
+    <div class="reading-header">
+      <h2 class="reading-title">📖 想象与自然：歌德与洪堡</h2>
+      <button class="reading-close" onclick="closeReadingPanel()" aria-label="关闭">✕</button>
+    </div>
+    <div class="reading-body" id="reading-content"></div>
+  </div>
+</div>
+</body>
+</html>
